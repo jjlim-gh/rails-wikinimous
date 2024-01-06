@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+puts "removing old articles..."
+Article.destroy_all
+
+puts "creating 10 Articles..."
+10.times do
+  post = Article.create(
+    title: Faker::Book.title,
+    content: Faker::Lorem.paragraph
+  )
+  puts "#{post.title} has been created."
+end
+puts "Done!"
